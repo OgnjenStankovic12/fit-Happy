@@ -1,0 +1,662 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    position: relative;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    margin-top: 10px;
+    padding: 10px 0;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    padding: 10px 20px;
+    display: block;
+}
+
+nav ul li:hover .dropdown-menu {
+    display: block;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        display: none; /* Sakrij meni */
+    }
+    
+    nav ul.show {
+        display: flex; /* Prikaži meni kada se klikne */
+    }
+    
+    nav .dropdown-menu {
+        position: static; /* Promena pozicije za mobilne */
+        width: 100%;
+    }
+    
+    nav ul li {
+        margin: 5px 0; /* Smanjenje razmaka na mobilnim uređajima */
+    }
+    
+    .menu-toggle {
+        display: block; /* Prikaži dugme za otvaranje menija */
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none; /* Sakrij dugme na većim ekranima */
+    }
+}
+/* Hero Sekcija */
+.hero {
+    background-image: url('happyAndFit/pilates/DSC_0388.JPG');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    position: relative;
+}
+
+.hero .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+}
+
+/* Sekcija sa uslugama */
+.services {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.service-list {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.service {
+    width: 30%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+}
+@media (max-width: 768px) { 
+    .service-list {
+        display: block;
+    }
+    .service {
+        width: 80%;
+        margin: 30px auto;
+    }
+}
+/* Slider */
+.experience-slider {
+    padding: 50px 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    display: none; /* Sakriva sve slajdove osim aktivnog */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Aktivni slajd se prikazuje */
+.slide.active {
+    display: block; /* Prikazuje samo aktivni slajd */
+    opacity: 1;
+}
+
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+footer a {
+    text-decoration: none;
+    color: rgb(200, 149, 255);
+}
+@media (max-width: 768px) { 
+    footer {
+        display: block;
+        text-align: center;
+    }
+}
+/* O Nama Sekcija */
+.about {
+    background-image: url('happyAndFit/ostalo/DSC_0354.JPG'); /* Dodajte putanju do pozadinske slike */
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.about .overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Tamni overlay */
+    padding: 20px;
+    border-radius: 8px;
+    display: inline-block; /* Da se overlay prilagodi sadržaju */
+}
+/* Galerija Sekcija */
+.gallery {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px; /* Razmak između sekcija */
+}
+
+.gallery-section {
+    flex: 1;
+    min-width: 300px; /* Minimalna širina za sekciju */
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.gallery-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px; /* Razmak između slika */
+}
+
+.gallery-images img {
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.gallery-images img:hover {
+    transform: scale(1.05); /* Uvećanje slika pri hoveru */
+}
+@media (max-width: 768px) { 
+    .gallery-container {
+        display: block;
+    }
+    .gallery-section {
+        width: 90%;
+        margin: 30px auto;
+    }
+}
+/* Blog Sekcija */
+.blog {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.blog-post {
+    max-width: 1000px; /* Maksimalna širina za blog post */
+    margin: 0 auto; /* Centriranje postova */
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.blog-post h2 {
+    margin-bottom: 20px;
+}
+
+.blog-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+/* Hero Sekcija za Joga */
+.hero-yoga {
+    background-image: url('happyAndFit/ostalo/DSC_0351.JPG'); /* Pozadinska slika */
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Visina hero sekcije */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-yoga .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Tamna overlay boja */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-yoga h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.hero-yoga p {
+    font-size: 1.2em;
+}
+
+/* Blokovi sa tekstom i slikama */
+.content {
+    padding: 50px 20px;
+}
+
+.info-block {
+    display: flex;
+    margin-bottom: 40px; /* Razmak između blokova */
+}
+
+.text-side {
+    flex: 1;
+    padding: 20px;
+}
+
+.image-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-side img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+/* Hero Sekcija za XBody */
+.hero-xbody {
+    background-image: url('happyAndFit/xbody/DSC_0334.JPG'); /* Pozadinska slika */
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Visina hero sekcije */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-xbody .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Tamna overlay boja */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-xbody h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.hero-xbody p {
+    font-size: 1.2em;
+}
+
+/* Blokovi sa tekstom i slikama */
+.content {
+    padding: 50px 20px;
+}
+
+.info-block {
+    display: flex;
+    margin-bottom: 40px; /* Razmak između blokova */
+}
+
+.text-side {
+    flex: 1;
+    padding: 20px;
+}
+/* usluge media query*/
+@media (max-width: 768px) { 
+    .info-block {
+        display: block  !important;
+    }
+    .text-side {
+        display: block  !important;
+    }
+}
+
+.image-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-side img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+/* Hero Sekcija za Reformer Pilates */
+.hero-reformer-pilates {
+    background-image: url('happyAndFit/pilates/DSC_0398.JPG'); /* Pozadinska slika */
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Visina hero sekcije */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-reformer-pilates .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Tamna overlay boja */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-reformer-pilates h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+.hero-reformer-pilates p {
+    font-size: 1.2em;
+}
+
+/* Blokovi sa tekstom i slikama */
+.content {
+    padding: 50px 20px;
+}
+
+.info-block {
+    display: flex;
+    margin-bottom: 40px; /* Razmak između blokova */
+}
+
+.text-side {
+    flex: 1;
+    padding: 20px;
+}
+
+.image-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-side img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+/* Hero Sekcija za Natašu Stanković */
+.hero-natasa {
+    background-image: url('happyAndFit/ostalo/DSC_0376.JPG'); /* Pozadinska slika */
+    background-size: cover;
+    background-position: center;
+    height: 750px; /* Visina hero sekcije */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+.hero-natasa .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Tamna overlay boja */
+    color: white;
+    padding: 20px;
+}
+
+
+
+.hero-natasa h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.hero-natasa p {
+    font-size: 1.2em;
+    max-width: 600px; /* Maksimalna širina paragrafa */
+    margin: 0 auto;
+    text-align: justify !important;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+@media (max-width: 426px) { 
+    .hero-natasa {
+        height: 950px;
+    }
+}
+/* Hero Sekcija za Milu Ljubenković */
+.hero-mila {
+    background-image: url('happyAndFit/ostalo/DSC_0376.JPG'); /* Pozadinska slika */
+    background-size: cover;
+    background-position: center;
+    height: 700px; /* Visina hero sekcije */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+.hero-mila .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Tamna overlay boja */
+    color: white;
+    padding: 20px;
+}
+
+
+
+.hero-mila h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.hero-mila p {
+    font-size: 1.2em;
+    max-width: 600px; /* Maksimalna širina paragrafa */
+    margin: 0 auto;
+    text-align: justify !important;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+@media (max-width: 426px) { 
+    .hero-mila {
+        height: 858px;
+    }
+}
+/* Hero Sekcija za Stefana Cvetkovića */
+.hero-stefan {
+    background-image: url('happyAndFit/ostalo/DSC_0376.JPG'); /* Pozadinska slika */
+    background-size: cover;
+    background-position: center;
+    height: 715px; /* Visina hero sekcije */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+.hero-stefan .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Tamna overlay boja */
+    color: white;
+    padding: 20px;
+}
+
+
+
+.hero-stefan h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.hero-stefan p {
+    font-size: 1.2em;
+    max-width: 600px; /* Maksimalna širina paragrafa */
+    margin: 0 auto;
+    text-align: justify !important;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+@media (max-width: 426px) { 
+    .hero-stefan {
+        height: 858px;
+    }
+}
+/* Hero Sekcija za Dimitrija Milovanovića */
+.hero-dimitrije {
+    background-image: url('happyAndFit/ostalo/DSC_0376.JPG'); /* Pozadinska slika */
+    background-size: cover;
+    background-position: center;
+    height: 700px; /* Visina hero sekcije */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    
+}
+
+.hero-dimitrije .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Tamna overlay boja */
+    color: white;
+    padding: 20px;
+}
+
+.trainer-image {
+    width: 150px; /* Širina slike trenera */
+    height: auto;
+    border-radius: 10%; /* Okrugli oblik */
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.9) !important;
+}
+
+.hero-dimitrije h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.hero-dimitrije p {
+    font-size: 1.2em;
+    max-width: 600px; /* Maksimalna širina paragrafa */
+    margin: 0 auto;
+    text-align: justify !important;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+@media (max-width: 426px) { 
+    .hero-dimitrije {
+        height: 872px;
+    }
+}
+/* Hero Sekcija za Ognjena Stankovića */
+.hero-ognjen {
+    background-image: url('happyAndFit/ostalo/DSC_0376.JPG'); /* Pozadinska slika */
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Visina hero sekcije */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+}
+
+.hero-ognjen .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Tamna overlay boja */
+    color: white;
+    padding: 20px;
+}
+
+.trainer-image {
+    width: 150px; /* Širina slike trenera */
+    height: auto;
+    border-radius: 10%; /* Okrugli oblik */
+    margin-bottom: 10px;
+}
+
+.hero-ognjen h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.hero-ognjen p {
+    font-size: 1.2em;
+    max-width: 600px; /* Maksimalna širina paragrafa */
+    margin: 0 auto;
+}
+/*slike*/
+img {
+    opacity: 0; /* Početna transparentnost */
+    transition: opacity .4s ease-in; /* Tranzicija */
+}
+
+img.visible {
+    opacity: 1; /* Potpuna neprozirnost kada se slika prikaže */
+}
